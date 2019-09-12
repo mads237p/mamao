@@ -1,9 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://use.typekit.net/ezp1vgo.css">
+    <link rel="icon" href="favicon.ico" type="gif" sizes="16x16">
     <title>MAMĀO</title>
     <style>
         body {
@@ -12,17 +13,21 @@
 
         img {
             width: 100%;
-            object-fit: cover;
-            /*            max-height: 200px;*/
+            overflow: hidden;
         }
 
         #grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-template-rows: auto;
-            grid-gap: 1rem;
-            margin: 4vw 4vw;
+            columns: 300px 3;
+            margin: 3vw 8vw;
+            overflow: hidden;
+            column-gap: .3rem;
+
             /*            align-self: center;*/
+        }
+
+        article {
+            overflow: hidden;
+            margin: -1.5vw 0;
         }
 
         #splash {
@@ -71,7 +76,8 @@
 
         }
 
-        #menu a {
+        #menu a,
+        button {
             font-family: futura-pt, sans-serif;
             font-weight: 700;
             font-style: normal;
@@ -81,6 +87,7 @@
             padding: 0.1rem;
             font-size: 1rem;
             color: #000;
+            border: none;
         }
 
         #menu a:hover {
@@ -127,6 +134,16 @@
                 color: #000;
             }
         }
+
+        .valgt {
+            color: orange;
+        }
+
+        .kategori {
+            display: none;
+            visibility: hidden;
+        }
+
     </style>
 </head>
 
@@ -141,11 +158,12 @@
         <div id="menuknap">&#9776;</div>
         <nav>
             <div id="menu">
-                <a href="">Live</a>
-                <a href="">Portrait</a>
-                <a href="">Nature</a>
-                <a href="">Urban</a>
-                <a href="">Analog</a>
+                <button class="filter valgt" data-kategori="alle"></button>
+                <button data-kategori="live">Live</button>
+                <button data-kategori="portrait ">Portrait</button>
+                <button data-kategori="nature">Nature</button>
+                <button data-kategori="urban">Urban</button>
+                <button data-kategori="analog">Analog</button>
 
 
             </div>
@@ -153,10 +171,13 @@
     </header>
 
     <section id="grid"></section>
+
     <template>
         <article class="gallery">
             <h2 class="navn"></h2>
+            <p class="kategori"></p>
             <img src="" alt="">
+
         </article>
     </template>
 
@@ -164,11 +185,18 @@
     <script>
         let gallery;
 
+        let filter = "alle";
+
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
             console.log("start");
 
+            let button = document.querySelectorAll("nav button");
+
+            //            detalje.style.display = "none";
+
+            button.forEach(knap => knap.addEventListener("click", filtrerBilleder));
 
             hentJson();
         }
@@ -188,29 +216,52 @@
 
         }
 
+        function filtrerBilleder() {
+            console.log("filtrerBilleder");
+
+            let valgt = document.querySelector(".valgt");
+
+            valgt.classList.remove("valgt");
+
+            filter = this.dataset.kategori; //Sæt variable filter til aktuel værdi
+
+            this.classList.add("valgt");
+
+            vis();
+
+        }
+
         function vis() {
 
 
             const temp = document.querySelector("template").content;
             const dest = document.querySelector("#grid");
 
-            //            dest.textContent = "";
+            dest.textContent = "";
 
-            gallery.feed.entry.forEach(billeder => {
-
-
-                const klon = temp.cloneNode(true);
-                console.log("klon");
-
-                klon.querySelector("h2").textContent = billeder.gsx$navn.$t;
-                klon.querySelector("img").src = "img/" + billeder.gsx$billede.$t + ".jpg";
-
-                klon.querySelector("img").alt = "billede af " + billeder.gsx$billede.$t;
+            gallery.feed.entry.forEach(billede => {
 
 
-                dest.appendChild(klon);
+                if (billede.gsx$kategori.$t == filter || filter == "alle") {
+
+                    const klon = temp.cloneNode(true);
+                    console.log("klon");
+
+                    klon.querySelector("img").src = "img_small/" + billede.gsx$billede.$t + ".jpg";
+
+                    klon.querySelector(".kategori").textContent = billede.gsx$kategori.$t;
+                    console.log(billede.gsx$kategori.$t);
+                    klon.querySelector("img").alt = "billede af " + billede.gsx$billede.$t;
+
+
+                    dest.appendChild(klon);
+
+                }
 
             });
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
