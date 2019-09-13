@@ -5,186 +5,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://use.typekit.net/ezp1vgo.css">
     <link rel="icon" href="favicon.ico" type="gif" sizes="16x16">
+    <link rel="stylesheet" href="style.css">
     <title>MAMĀO</title>
-    <style>
-        body {
-            margin: 0;
-        }
 
-        img {
-            width: 100%;
-            overflow: hidden;
-        }
-
-        #grid {
-            columns: 300px 3;
-            margin: 3vw 8vw;
-            overflow: hidden;
-            column-gap: .3rem;
-
-            /*            align-self: center;*/
-        }
-
-        a {
-            text-decoration: none;
-            text-transform: capitalize;
-        }
-
-        article {
-            overflow: hidden;
-            margin: -1.5vw 0;
-        }
-
-        #splash {
-            background-image: url(img/brynhilde2.jpg);
-            background-size: cover;
-            width: 100%;
-            background-position: 0% 50%;
-            height: 177.4vw;
-        }
-
-        #logo {
-            position: absolute;
-            top: 20vw;
-            left: 47vw;
-            width: 50vw;
-        }
-
-        #subtext {
-            position: absolute;
-            top: 43vw;
-            left: 50vw;
-            width: 40vw;
-            font-family: sorts-mill-goudy, serif;
-            font-style: italic;
-            font-weight: 500;
-            color: #fff;
-            font-size: .7rem;
-
-        }
-
-        #menuknap {
-            position: absolute;
-            font-size: 2rem;
-            top: 0;
-            color: #fff;
-            margin: 2vw;
-            cursor: pointer;
-            z-index: 3000;
-
-        }
-
-
-        #menu {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-        }
-
-        #menu a,
-        button {
-            font-family: futura-pt, sans-serif;
-            font-weight: 700;
-            font-style: normal;
-            text-transform: uppercase;
-            text-decoration: none;
-            margin: 1rem;
-            padding: 0.1rem;
-            font-size: 1rem;
-            color: #000;
-            border: none;
-        }
-
-        #menu a:hover {
-            color:
-        }
-
-        .gallery {
-            cursor: pointer;
-
-        }
-
-        .burgermenu {
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            margin: 0 0 0 0;
-            z-index: 2000;
-            padding: 3vw;
-            background-color: rgba(46, 139, 87, 0.3);
-        }
-
-        .burgermenu a {
-            font-family: futura pt, 'sans-serif';
-            margin: 10px;
-            padding: 2vw 0;
-            font-size: 1rem;
-            color: #fff;
-
-        }
-
-        .hidden {
-            visibility: hidden;
-            display: none;
-        }
-
-        #menu a {
-            margin-left: 30px;
-            padding: 0 0rem 0 1rem;
-            border-left: 5px solid #fff;
-            font-size: 1.2rem;
-            font-family: 'work sans', sans-serif;
-        }
-
-
-        @media only screen and (min-width: 600px) {
-
-            #splash {
-                background-size: cover;
-                width: 100%;
-                height: 56.6vw;
-                background-position: 0% 10%;
-            }
-
-            #logo {
-                position: absolute;
-                top: 20vw;
-                left: 50vw;
-                width: 30vw;
-            }
-
-            #subtext {
-                top: 36vw;
-                font-size: 1.1rem;
-            }
-
-            #menu {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                margin: 0 10vw;
-            }
-
-            #menu a {
-                margin: 1rem;
-                padding: 0.1rem;
-                font-size: 1.5rem;
-                color: #000;
-            }
-
-            .valgt {
-                color: orange;
-            }
-
-            .kategori {
-                display: none;
-                visibility: hidden;
-            }
-    </style>
 </head>
 
 <body>
@@ -200,27 +23,36 @@
             <div id="menuknap">&#9776;</div>
             <div class="burgermenu hidden">
                 <a href="">MENU</a>
-                <a href="">MENU</a>
-                <a href="">MENU</a>
-                <a href="">MENU</a>
-                <a href="">MENU</a>
-                <a href="">MENU</a>
+                <button class="filter" data-filter="Alice Hüllert">Alice Hüllert</button>
+                <button class="filter" data-filter="Jenny Sila">Jenny Sila</button>
+                <button class="filter" data-filter="Malik Grosos">Malik Grosos</button>
+                <a href="">About</a>
             </div>
 
             <div id="menu">
                 <button class="filter valgt" data-kategori="alle"></button>
-                <button data-kategori="live">Live</button>
-                <button data-kategori="portrait ">Portrait</button>
-                <button data-kategori="nature">Nature</button>
-                <button data-kategori="urban">Urban</button>
-                <button data-kategori="analog">Analog</button>
-
+                <button data-filter="live" class="filter">Live</button>
+                <button data-filter="portrait " class="filter">Portrait</button>
+                <button data-filter="nature" class="filter">Nature</button>
+                <button data-filter="urban" class="filter">Urban</button>
+                <button data-filter="analog" class="filter">Analog</button>
 
             </div>
         </nav>
     </header>
 
     <section id="grid"></section>
+
+    <article id="detalje">
+        <article class="gallery">
+            <a class="luk">𝘅</a>
+            <img src="" alt="">
+            <h2 class="navn"></h2>
+            <p class="beskrivelse"></p>
+            <p id="kunstner"></p>
+            <p class="kategori"></p>
+        </article>
+    </article>
 
     <template>
         <article class="gallery">
@@ -231,107 +63,8 @@
         </article>
     </template>
 
-
+    <script src="script.js"></script>
     <script>
-        let gallery;
 
-        let filter = "alle";
-
-        document.querySelector("#menuknap").addEventListener("click", toggleMenu);
-
-        document.addEventListener("DOMContentLoaded", start);
-
-        function start() {
-            console.log("start");
-
-            let button = document.querySelectorAll("nav button");
-
-            //            detalje.style.display = "none";
-
-            button.forEach(knap => knap.addEventListener("click", filtrerBilleder));
-
-            hentJson();
-        }
-
-
-        async function hentJson() {
-
-            const JsonURL = "https://spreadsheets.google.com/feeds/list/1GpINnM4T06f0kmnvTbFIUhjcDDQIBfumXkSyaEKTzEw/od6/public/values?alt=json";
-
-            const response = await fetch(JsonURL);
-            console.log(response);
-
-            gallery = await response.json();
-            console.log(gallery);
-
-            vis();
-
-        }
-
-        function filtrerBilleder() {
-            console.log("filtrerBilleder");
-
-            let valgt = document.querySelector(".valgt");
-
-            valgt.classList.remove("valgt");
-
-            filter = this.dataset.kategori; //Sæt variable filter til aktuel værdi
-
-            this.classList.add("valgt");
-
-            vis();
-
-        }
-
-        function vis() {
-
-
-            const temp = document.querySelector("template").content;
-            const dest = document.querySelector("#grid");
-
-            dest.textContent = "";
-
-            gallery.feed.entry.forEach(billede => {
-
-
-                if (billede.gsx$kategori.$t == filter || filter == "alle") {
-
-                    const klon = temp.cloneNode(true);
-                    console.log("klon");
-
-                    klon.querySelector("img").src = "img_small/" + billede.gsx$billede.$t + ".jpg";
-
-                    klon.querySelector(".kategori").textContent = billede.gsx$kategori.$t;
-                    console.log(billede.gsx$kategori.$t);
-                    klon.querySelector("img").alt = "billede af " + billede.gsx$billede.$t;
-
-
-                    dest.appendChild(klon);
-
-                }
-
-            });
-        }
-
-
-        function toggleMenu() {
-            console.log("toggleMenu");
-
-
-
-            document.querySelector(".burgermenu").classList.toggle("hidden");
-
-            let erSkjult = document.querySelector(".burgermenu").classList.contains("hidden");
-
-            if (erSkjult == true) {
-
-                document.querySelector("#menuknap").textContent = "☰";
-
-            } else {
-
-                document.querySelector("#menuknap").textContent = "X";
-
-            }
-        }
     </script>
 </body></html>

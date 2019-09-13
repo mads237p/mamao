@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamao</title>
+    <link rel="stylesheet" href="https://use.typekit.net/ezp1vgo.css">
+    <style>
+        img {
+            width: 100%;
+
+        }
+
+        button {
+            border: none;
+            background: none;
+        }
+
+
+        #detalje {
+            width: 100vw;
+            height: 100vw;
+            margin: 8vw auto;
+
+        }
+
+        #detalje .tilbage {
+            position: fixed;
+            top: 0;
+            right: 0vw;
+            margin: 2rem 4rem 0 0;
+            font-size: 4rem;
+
+        }
+
+        #detalje .person {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 5vw 20vw;
+            grid-template-areas:
+                "main header header ."
+                "main sidebar sidebar .";
+            margin: 0 0 0 10vw;
+            background: rgba(255, 255, 255, 0.87);
+        }
+
+        #detalje .kunstnerbeskrivelse {
+            font-family: futura pt, sans-serif;
+            font-weight: 200;
+            padding: 1rem 2rem 0 4rem;
+            grid-area: sidebar;
+            margin: 0 0 0 2rem;
+        }
+
+        #detalje img {
+            grid-area: main;
+        }
+
+        #detalje h2 {
+            justify-self: start;
+            grid-area: header;
+            padding: 0 6rem;
+            font-family: sorts-mill-goudy, serif;
+            font-style: normal;
+            font-weight: 500;
+            color: #000;
+
+        }
+
+        #menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+
+        #menu a,
+        #menu button {
+            font-family: futura-pt, sans-serif;
+            font-weight: 700;
+            font-style: thin;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin: 1rem;
+            padding: 0.1rem;
+            font-size: 1.5rem;
+            color: #000;
+            border: none;
+        }
+
+
+        #menuknap {
+            position: fixed;
+            font-size: 2rem;
+            top: 0;
+            color: #fff;
+            margin: 2vw;
+            cursor: pointer;
+            z-index: 3000;
+
+        }
+
+        .burgermenu {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            margin: 0 0 0 0;
+            z-index: 2000;
+            padding: 3vw;
+            background-color: rgba(46, 139, 87, 0.3);
+        }
+
+        .burgermenu a {
+            font-family: futura pt, 'sans-serif';
+            margin: 10px;
+            padding: 2vw 0;
+            font-size: 1rem;
+            color: #fff;
+
+        }
+
+        .hidden {
+            display: none;
+            visibility: hidden;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div id="menuknap">&#9776;</div>
+        <div class="burgermenu hidden">
+            <a href="">MENU</a>
+            <button class="filter" data-filter="Alice Hüllert">Alice Hüllert</button>
+            <button class="filter" data-filter="Jenny Sila">Jenny Sila</button>
+            <button class="filter" data-filter="Malik Grosos">Malik Grosos</button>
+            <a href="">About</a>
+        </div>
+
+    </nav>
+
+    <section id="detalje">
+        <article class="person">
+
+            <button class="tilbage">𝘅</button>
+            <img src="" alt="">
+            <h2></h2>
+            <p class="kunstnerbeskrivelse">
+            </p>
+        </article>
+    </section>
+
+
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const github = urlParams.get("github");
+        console.log(github);
+
+        let gallery;
+
+        const JsonURL = "https://spreadsheets.google.com/feeds/list/1GpINnM4T06f0kmnvTbFIUhjcDDQIBfumXkSyaEKTzEw/od6/public/values?alt=json";
+
+        document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+
+            hentJson();
+        }
+
+
+        async function hentJson() {
+
+            const response = await fetch(JsonURL);
+            console.log(response);
+
+            gallery = await response.json();
+            console.log(gallery);
+
+            vis();
+
+        }
+
+        function vis() {
+
+
+            gallery.feed.entry.forEach(person => {
+
+
+                if (person.gsx$github.$t == github) {
+
+                    document.querySelector("h2").textContent = person.gsx$kunstner.$t;
+                    document.querySelector("img").src = "img_artist/" + person.gsx$kunstnerbillede.$t + ".jpg";
+                    document.querySelector("img").alt = "billede af " + person.gsx$kunstnerbillede.$t;
+                    document.querySelector(".kunstnerbeskrivelse").textContent = person.gsx$kunstnerbeskrivelse.$t;
+
+                }
+            });
+        }
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+
+            document.querySelector(".burgermenu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector(".burgermenu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+
+                document.querySelector("#menuknap").textContent = "☰";
+
+            } else {
+
+                document.querySelector("#menuknap").textContent = "𝘅";
+
+            }
+        }
+
+        document.querySelector(".tilbage").addEventListener("click", () => {
+
+            history.back();
+        })
+
+    </script>
+</body>
+
+</html>
