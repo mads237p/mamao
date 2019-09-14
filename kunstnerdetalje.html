@@ -26,7 +26,7 @@
         }
 
         #detalje .tilbage {
-            position: fixed;
+            position: absolute;
             top: 0;
             right: 0vw;
             margin: 2rem 4rem 0 0;
@@ -94,7 +94,7 @@
             position: fixed;
             font-size: 2rem;
             top: 0;
-            color: #fff;
+            color: #000;
             margin: 2vw;
             cursor: pointer;
             z-index: 3000;
@@ -160,8 +160,8 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const github = urlParams.get("github");
-        console.log(github);
+        const kunstnerbillede = urlParams.get("kunstnerbillede");
+        console.log(kunstnerbillede);
 
         let gallery;
 
@@ -195,12 +195,14 @@
             gallery.feed.entry.forEach(person => {
 
 
-                if (person.gsx$github.$t == github) {
+                if (person.gsx$kunstnerbillede.$t == kunstnerbillede) {
+
 
                     document.querySelector("h2").textContent = person.gsx$kunstner.$t;
                     document.querySelector("img").src = "img_artist/" + person.gsx$kunstnerbillede.$t + ".jpg";
                     document.querySelector("img").alt = "billede af " + person.gsx$kunstnerbillede.$t;
                     document.querySelector(".kunstnerbeskrivelse").textContent = person.gsx$kunstnerbeskrivelse.$t;
+                    console.log(kunstnerbeskrivelse);
 
                 }
             });

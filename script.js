@@ -96,14 +96,11 @@ function visDetalje(billede) {
 
     document.querySelector("#kunstner").addEventListener("click", () => {
 
-        location.href = `kunstnerdetalje.html?github=${billede.gsx$github.$t}`;
-        console.log(billede.gsx$github.$t);
+        location.href = `kunstnerdetalje.html?kunstnerbillede=${billede.gsx$kunstnerbillede.$t}`;
 
     })
 
 }
-
-
 
 
 function skjulDisplay() {
