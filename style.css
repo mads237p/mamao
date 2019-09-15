@@ -260,20 +260,37 @@
             color: orange;
         }
 
-        .burgermenu button {
-            font-family: futura pt, 'sans-serif';
-            margin: 10px;
-            padding: 2vw 0;
-            font-size: 1rem;
+
+        .burgermenu {
+            width: 20%;
+
+        }
+
+        .burgermenu a,
+        button {
+            font-family: futura-pt, 'sans-serif';
+            margin: 0 auto;
+            padding: 3vw 0;
+            font-size: 1.5rem;
             color: #fff;
-            background: none;
             border: none;
+            background: none;
+
         }
 
         #detalje img {
-            width: 30vw;
+            width: 38vw;
             min-height: 30vh;
             padding: 2rem;
         }
 
+
+        #detalje .gallery {
+            text-align: center;
+            width: 50vw;
+            min-height: 30vh;
+            margin: auto;
+            padding: 1rem;
+
+        }
     }

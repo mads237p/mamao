@@ -158,7 +158,7 @@
                 margin: 0 0 0 10vw;
                 background: rgba(255, 255, 255, 0.87);
             }
-
+    
             #detalje .kunstnerbeskrivelse {
                 font-family: futura pt, sans-serif;
                 font-weight: 200;
@@ -214,10 +214,10 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const kunstnerbillede = urlParams.get("kunstnerbillede");
-        console.log(kunstnerbillede);
+        const kunstnerbillede = urlParams.get("kunstnerbillede"); //Vælger profil udfra navnet på kunsterbillede.
+        console.log(kunstnerbillede); 
 
-        let gallery;
+        let gallery; ARRAY-Liste
 
         const JsonURL = "https://spreadsheets.google.com/feeds/list/1GpINnM4T06f0kmnvTbFIUhjcDDQIBfumXkSyaEKTzEw/od6/public/values?alt=json";
 
