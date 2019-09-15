@@ -27,7 +27,7 @@ async function hentJson() {
     const response = await fetch(JsonURL);
     console.log(response);  // Venter på at hente (fetche) JSON fil. 
 
-    gallery = await response.json(); // Vores array venter på svar fra JSON
+    gallery = await response.json(); // Vores array venter på svar fra JSON 
     console.log(gallery);
 
     vis();
