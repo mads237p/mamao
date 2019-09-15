@@ -12,6 +12,10 @@
 
         }
 
+        a {
+            text-decoration: none;
+        }
+
         button {
             border: none;
             background: none;
@@ -27,28 +31,21 @@
 
         #detalje .tilbage {
             position: absolute;
-            top: 0;
-            right: 0vw;
-            margin: 2rem 4rem 0 0;
+            top: -8vw;
+            right: 2vw;
             font-size: 4rem;
 
         }
 
         #detalje .person {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 5vw 20vw;
-            grid-template-areas:
-                "main header header ."
-                "main sidebar sidebar .";
-            margin: 0 0 0 10vw;
+            margin: 3vw;
             background: rgba(255, 255, 255, 0.87);
         }
 
         #detalje .kunstnerbeskrivelse {
             font-family: futura pt, sans-serif;
             font-weight: 200;
-            padding: 1rem 2rem 0 4rem;
+            padding: 1rem 1rem;
             grid-area: sidebar;
             margin: 0 0 0 2rem;
         }
@@ -60,7 +57,8 @@
         #detalje h2 {
             justify-self: start;
             grid-area: header;
-            padding: 0 6rem;
+            padding: 0 3rem;
+            margin: 3vw 0 0 0;
             font-family: sorts-mill-goudy, serif;
             font-style: normal;
             font-weight: 500;
@@ -74,21 +72,6 @@
             justify-content: space-between;
 
         }
-
-        #menu a,
-        #menu button {
-            font-family: futura-pt, sans-serif;
-            font-weight: 700;
-            font-style: thin;
-            text-transform: uppercase;
-            text-decoration: none;
-            margin: 1rem;
-            padding: 0.1rem;
-            font-size: 1.5rem;
-            color: #000;
-            border: none;
-        }
-
 
         #menuknap {
             position: fixed;
@@ -106,26 +89,99 @@
             left: 0;
             top: 0;
             bottom: 0;
+            width: 100%;
             display: flex;
             flex-direction: column;
             margin: 0 0 0 0;
             z-index: 2000;
-            padding: 3vw;
+            padding: 8vw 3vw;
             background-color: rgba(46, 139, 87, 0.3);
         }
 
-        .burgermenu a {
-            font-family: futura pt, 'sans-serif';
-            margin: 10px;
-            padding: 2vw 0;
-            font-size: 1rem;
+        .burgermenu a,
+        button {
+            font-family: futura-pt, 'sans-serif';
+            margin: 0 auto;
+            padding: 9vw 0;
+            font-size: 2rem;
             color: #fff;
+            border: none;
+            background: none;
 
         }
 
         .hidden {
             display: none;
             visibility: hidden;
+        }
+
+
+        @media only screen and (min-width: 600px) {
+
+
+
+            #menu {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 0 10vw;
+            }
+
+            #menu a {
+                margin: 1rem;
+                padding: 0.1rem;
+                font-size: 1.5rem;
+                color: #000;
+            }
+
+            #menu .valgt {
+                color: orange;
+            }
+
+            .burgermenu button {
+                font-family: futura pt, 'sans-serif';
+                margin: 10px;
+                padding: 2vw 0;
+                font-size: 1rem;
+                color: #fff;
+                background: none;
+                border: none;
+            }
+
+            #detalje .person {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-rows: 5vw 20vw;
+                grid-template-areas:
+                    "main header header ."
+                    "main sidebar sidebar .";
+                margin: 0 0 0 10vw;
+                background: rgba(255, 255, 255, 0.87);
+            }
+
+            #detalje .kunstnerbeskrivelse {
+                font-family: futura pt, sans-serif;
+                font-weight: 200;
+                padding: 1rem 2rem 0 4rem;
+                grid-area: sidebar;
+                margin: 0 0 0 2rem;
+            }
+
+            #detalje img {
+                grid-area: main;
+            }
+
+            #detalje h2 {
+                justify-self: start;
+                grid-area: header;
+                padding: 0 6rem;
+                font-family: sorts-mill-goudy, serif;
+                font-style: normal;
+                font-weight: 500;
+                color: #000;
+
+            }
+
         }
 
     </style>
@@ -136,10 +192,9 @@
     <nav>
         <div id="menuknap">&#9776;</div>
         <div class="burgermenu hidden">
-            <a href="">MENU</a>
-            <button class="filter" data-filter="Alice Hüllert">Alice Hüllert</button>
-            <button class="filter" data-filter="Jenny Sila">Jenny Sila</button>
-            <button class="filter" data-filter="Malik Grosos">Malik Grosos</button>
+            <a href="">Alice Hüllert</a>
+            <a href="">Jenny Sila</a>
+            <a href="">Malik Grosos</a>
             <a href="">About</a>
         </div>
 
@@ -151,8 +206,7 @@
             <button class="tilbage">𝘅</button>
             <img src="" alt="">
             <h2></h2>
-            <p class="kunstnerbeskrivelse">
-            </p>
+            <p class="kunstnerbeskrivelse"></p>
         </article>
     </section>
 
