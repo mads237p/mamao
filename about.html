@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="https://use.typekit.net/ezp1vgo.css">
+    <link rel="icon" href="logo/favicon.ico" type="gif" sizes="16x16">
+    <title>ABOUT</title>
+    <style>
+        img {
+            max-width: 100%;
+        }
+
+        #about img {
+            max-width: 70vh;
+            padding: 0 0 3vw 0;
+            margin: 0 0 0 32vw;
+        }
+
+        #about p {
+            font-family: futura-pt, sans-serif;
+            font-weight: 200;
+            font-size: 1.2rem;
+            margin: 0 0 0 33vw;
+            padding: 0;
+            width: 33vw;
+        }
+
+        #about {
+            position: fixed;
+            text-align: justify;
+            top: 5vw;
+
+            height: 50vh;
+            background-color: rgba(255, 255, 255, 0.89);
+            background-color: #f4f4f4;
+
+        }
+
+        body {
+            background-color: #f4f4f4;
+        }
+
+        .fotografer {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50vw;
+            height: 45vw;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+
+
+        .fotografer img {
+            max-height: 37vw;
+        }
+
+
+        figcaption {
+            font-family: futura-pt, sans-serif;
+            position: absolute;
+            font-weight: 200;
+            font-size: 2rem;
+            margin: 0;
+            padding: 0;
+            top: 30vw;
+            color: white;
+        }
+
+        figure {
+            display: flex;
+            justify-content: center;
+        }
+
+        #menuknap {
+            position: fixed;
+            font-size: 2rem;
+            top: 0;
+            color: black;
+            margin: 2vw;
+            cursor: pointer;
+            z-index: 3000;
+        }
+
+        #menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+        }
+
+        #menu a,
+        #menu button {
+            font-family: futura-pt, sans-serif;
+            font-weight: 700;
+            font-style: thin;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin: 1rem;
+            padding: 0.1rem;
+            font-size: 1.5rem;
+            color: #000;
+            border: none;
+        }
+
+        #menu a {
+            margin-left: 30px;
+            padding: 0 0rem 0 1rem;
+            border-left: 5px solid #fff;
+            font-size: 1.2rem;
+            font-family: 'work sans', sans-serif;
+        }
+
+
+        #menu a:hover {
+            color:
+        }
+
+        .burgermenu {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            margin: 0 0 0 0;
+            z-index: 2000;
+            padding: 3vw;
+            background-color: rgba(46, 139, 87, 0.3);
+        }
+
+        .burgermenu a,
+        button {
+            font-family: futura-pt, 'sans-serif';
+            margin: 0 auto;
+            padding: 9vw 0;
+            font-size: 2rem;
+            color: #fff;
+            border: none;
+            background: none;
+        }
+
+        .hidden {
+            visibility: hidden;
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div id="menuknap">&#9776;</div>
+        <div class="burgermenu hidden">
+            <a href="">MENU</a>
+            <button class="filter" data-filter="Alice Hüllert">Alice Hüllert</button>
+            <button class="filter" data-filter="Jenny Sila">Jenny Sila</button>
+            <button class="filter" data-filter="Malik Grosos">Malik Grosos</button>
+            <a href="about.html">About</a>
+        </div>
+
+    </nav>
+
+    <section id="about">
+        <a href="index.html"><img src="logo/logo_black.png" alt="logo"></a>
+
+        <p>We are a Copenhagen based visual company founded in 2019 exploring the depth of urban and versatile cultures, beauty and its complexities.
+        </p>
+
+        <br>
+
+        <p>
+            MAMĀO is the samoan word for “seeing things from far away” and as photographers we try to bring different realities closer, invoking curiosity by presenting new angles, closer or even more distant looks, that provokes the feelings.
+        </p>
+
+        <br>
+
+        <p>
+            See the world through our eyes and see what beauty we have stumbled upon. Enjoy the art and read about the artist behind it. Do you like what you see? Then contact the photographer.
+        </p>
+    </section>
+
+    <section class="fotografer">
+        <figure>
+            <img src="img_artist/malikbillede.jpg" alt="malik">
+            <figcaption>MALIK GROSOS</figcaption>
+        </figure>
+
+        <figure>
+            <img src="img_artist/jennybillede.jpg" alt="jenny">
+            <figcaption>JENNY SILA</figcaption>
+        </figure>
+        <figure>
+            <img src="img_artist/alicebillede.jpg" alt="alice">
+            <figcaption>ALICE HÜLLERT</figcaption>
+        </figure>
+
+    </section>
+    <script src="script.js"></script>
+    <!--
+    // document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+    //
+    // function toggleMenu() {
+    // console.log("toggleMenu");
+    //
+    // document.querySelector(".burgermenu").classList.toggle("hidden"); //har toggler classen "hidden" on/off
+    //
+    // let erSkjult = document.querySelector(".burgermenu").classList.contains("hidden");
+    //
+    // if (erSkjult == true) { //hvis hidden er på knappen
+    //
+    // document.querySelector("#menuknap").textContent = "☰"; //skal denne vises
+    //
+    // } else { //ellers skal krydset vises.
+    //
+    // document.querySelector("#menuknap").textContent = "𝘅";
+    //
+    // }
+    // }
+-->
+
+
+</body>
+
+</html>
