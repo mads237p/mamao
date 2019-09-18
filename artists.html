@@ -9,83 +9,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.typekit.net/ezp1vgo.css">
     <link rel="icon" href="logo/favicon.ico" type="gif" sizes="16x16">
-    <link rel="stylesheet" href="style.css">
+    <!--    <link rel="stylesheet" href="style.css">-->
     <title>MAMĀO</title>
     <style>
         :root {
-
+            /*    CSS VARIABLER    */
             --link-color: #ffbe78;
             --menu-color: rgba(0, 123, 137, 0.7);
         }
 
         img {
+            /* billeder forbliver fuld størrelse */
             width: 100%;
 
         }
 
         a {
+            /* Ingen default setting på styling af links */
             text-decoration: none;
         }
 
 
         button {
+            /* Styling af knapper / Fjerner default settings fra button selector */
             color: #000;
             border: none;
             background: none;
         }
 
         article {
+            /*  */
             overflow: hidden;
-            margin: -4vw 0;
+            /* Fylder indholdet mere, croppes det.. */
+            margin: -1.1rem 0;
+            /* justere row gap i columns */
         }
 
         .kategori {
             display: none;
-            visibility: hidden;
+            /* Viser ikke selector elementet */
         }
 
         /********** HEADER *************/
 
-        header a #artist {
+        header a #top_logo {
             margin: 1vw 37vw;
+            /* Placering af logo */
             width: 20vw;
+            /* Størrelse på logo */
         }
 
         /* ********  DETALJE *******/
 
         #detalje {
             position: relative;
+            /* position er relativ ift resten af elementer */
             width: 100vw;
+            /* fylder hele siden i bredden */
             margin: 8vw auto;
+            /* afstand fra top og side */
+            font-family: futura pt, sans-serif;
+            font-weight: 200;
 
         }
-
 
         #detalje .billede {
             margin: 3vw;
-            background: rgba(255, 255, 255, 0.87);
-            font-family: futura pt, sans-serif;
-            font-weight: 200;
         }
 
         #detalje .kunstnerbeskrivelse {
-            font-family: futura pt, sans-serif;
-            font-weight: 200;
             padding: 1rem 1rem;
-            grid-area: sidebar;
-            margin: 0 0 0 0rem;
+            /* afstand fra top og side */
+            grid-area: about;
+            /* Grid attribut */
+            margin: 0;
         }
 
-         #detalje .telefon, .email {
-                margin: 0 0 0 1rem;
-             font-weight: 500;
+        #detalje .telefon,
+        #detalje .email {
+            margin: 0 0 0 1rem;
+            /*            font-weight: 500;*/
 
-            }
-
+        }
 
 
         #detalje img {
-            grid-area: main;
+            grid-area: foto;
         }
 
         #detalje h2 {
@@ -145,36 +154,38 @@
             color: var(--link-color);
         }
 
-.burgermenu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 0 0 0;
-    z-index: 2000;
-    padding: 3vw;
-    background-color: var(--menu-color);
-}
+        /***********        BURGER MENU  **********/
 
-.burgermenu a,
-.burgermenu button {
-    font-family: futura-pt, 'sans-serif';
-    margin: 2vw auto;
-    padding: 9vw 0;
-    font-size: 2rem;
-    color: #fff;
-    border: none;
-    background: none;
-    transition: 0.5s;
+        .burgermenu {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 0 0 0;
+            z-index: 2000;
+            padding: 3vw;
+            background-color: var(--menu-color);
+        }
 
-}
+        .burgermenu a,
+        .burgermenu button {
+            font-family: futura-pt, 'sans-serif';
+            margin: 2vw auto;
+            padding: 9vw 0;
+            font-size: 2rem;
+            color: #fff;
+            border: none;
+            background: none;
+            transition: 0.5s;
 
-.burgermenu img {
-    width: 70vw;
-}
+        }
+
+        .burgermenu img {
+            width: 70vw;
+        }
 
         .burgermenu a:hover {
             color: var(--link-color);
@@ -184,10 +195,6 @@
             display: none;
             visibility: hidden;
         }
-
-
-
-
 
 
         /************ ABOVE 600 PIXELS ***************/
@@ -209,8 +216,6 @@
                 margin: -1.1rem 0;
             }
 
-
-
             #menu {
                 display: flex;
                 flex-direction: row;
@@ -231,106 +236,127 @@
             }
 
 
-            header a #artist {
+            header a #top_logo {
                 margin: 1vw 37vw;
                 max-width: 20vw;
             }
 
+            .burgermenu {
+                width: 20%;
+
+            }
+
+            .burgermenu img {
+                width: 15vw;
+            }
+
+
+            .burgermenu a,
             .burgermenu button {
-                font-family: futura pt, 'sans-serif';
-                margin: 1vw;
-                padding: 2vw 0;
-                font-size: 1rem;
+                font-family: futura-pt, 'sans-serif';
+                margin: 2vw auto;
+                padding: 3vw 0;
+                font-size: 1.5rem;
                 color: #fff;
-                background: none;
                 border: none;
+                background: none;
+
             }
 
             #detalje {
                 position: relative;
                 width: 100vw;
+                /* Fylder hele siden i bredden */
                 margin: 4vw auto;
+                /* Margin top og auto på siderne som centrere elementet*/
 
             }
 
-            #detalje .billede {
+            #detalje .info {
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                grid-template-rows: 15vw 2vw 4vw 15vw;
-                grid-template-areas:
-                    "main sidebar sidebar ."
-                    "main email email ."
-                    "main telefon telefon ."
-                    "main . . .";
+                /* Muliggøre grid layout */
                 margin: 0 0 0 10vw;
-                background: rgba(255, 255, 255, 0.87);
-                font-family: futura pt, sans-serif;
-                font-weight: 200;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                /* LAVER 4 områder i bredden */
+                grid-template-rows: 15vw 2vw 2vw 15vw;
+                /* LAVER 4 områder i højden */
+                grid-template-areas:
+                    /* Navngiver og Fortæller hvilke elementer der skal fylde hvor meget */
+                    "foto about about ."
+                    "foto email email ."
+                    "foto telefon telefon ."
+                    "foto . . .";
             }
 
             #detalje .kunstnerbeskrivelse {
-                font-family: futura pt, sans-serif;
-                font-weight: 200;
+                grid-area: about;
+                /* Grid Area navn */
                 padding: 1rem 2rem 0 4rem;
-                grid-area: sidebar;
+                /* Justerer tekst*/
                 margin: 0 0 0 2rem;
+                /* Justerer tekst*/
+
             }
 
-            #detalje img {
-                grid-area: main;
-            }
-
-            #detalje .email, #detalje .telefon {
-
+            #detalje .email,
+            #detalje .telefon {
                 padding: 0 2rem 0 4rem;
                 margin: 0 0 0 2rem;
                 grid-area: email;
+                /* Grid Area navn */
                 align-self: flex-start;
+                /* elementets placering vertikalt */
                 justify-self: start;
+                /* elementets placering horisontalt  */
+            }
+
+            #detalje img {
+                grid-area: foto;
+                /* Grid Area navn */
             }
 
             #detalje .telefon {
                 grid-area: telefon;
+                /* Grid Area navn */
+            }
+
+            #arrow {
+                position: absolute;
+                top: 29vw;
+                left: 50vw;
+                margin: 1vw auto;
+                height: 100px;
+                width: 100px;
+                font-family: courier new, 'sans-serif';
+                font-size: 5rem;
+
 
             }
 
-            #detalje h2 {
-                justify-self: start;
-                grid-area: header;
-                padding: 0 6rem;
-                font-family: sorts-mill-goudy, serif;
-                font-style: normal;
-                font-weight: 500;
-                color: #000;
-
+            .blink_kf {
+                /* Animations class navn */
+                animation-name: blink_kf;
+                /* Animations navn */
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                /* Animations gentagelser */
+                animation-timing-function: ease-in;
             }
 
-              #arrow {
-           position: absolute;
-             top: 29vw;
-             left: 50vw;
-           margin: 1vw auto;
-           height: 100px;
-           width: 100px;
-           font-family: courier new, 'sans-serif';
-           font-size: 5rem;
+            @keyframes blink_kf {
+                0% {
+                    opacity: 1;
+                }
 
+                50% {
+                    opacity: 0;
+                }
 
-       }
+                100% {
+                    opacity: 1;
+                }
 
-             .blink_kf {
-            animation-name: blink_kf;
-            animation-duration: 2s;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in;
-        }
-
-        @keyframes blink_kf {
-            0% {opacity: 1;}
-            50% {opacity: 0;}
-            100%{opacity: 1;}
-
-        }
+            }
 
         }
     </style>
@@ -338,8 +364,11 @@
 
 <body>
     <header>
-        <a href="index.html"><img id="artist" src="logo/logo_black.png" alt=""></a>
+        <a href="index.html"><img id="top_logo" src="logo/logo_black.png" alt=""></a>
+
+
         <nav>
+            <!-- indeholdet i vores burgermenu -->
             <div id="menuknap">&#9776;</div>
             <div class="burgermenu hidden">
                 <a href="index.html"><img src="logo_white.png" alt=""></a>
@@ -347,30 +376,36 @@
                 <a href="about.html">About</a>
             </div>
 
+            <!-- Filtreringsmenu. Bliver filtreret udfra data-kategorier-->
             <div id="menu">
                 <button class="filter valgt" data-filter="Malik Grosos">Malik Grosos</button>
-                <button class="filter" data-filter="Alice Hüllert">Alice Hüllert</button>
+                <button class="filter" data-filter="Alice Hüllert">Alice Hüllert</button> <!-- filtreringsknappens data-attribut indeholder den værdi, der skal filtreres på -->
                 <button class="filter" data-filter="Jenny Sila">Jenny Sila</button>
 
             </div>
         </nav>
     </header>
 
-    <section id="detalje">
-        <article class="billede">
-            <img src="img_artist/alicebillede.jpg" alt="">
 
+    <!--   Samme HTML struktur som pop-up vindue for at tilføje JSON   -->
+
+    <section id="detalje">
+        <article class="info">
+            <img src="" alt="">
             <p class="kunstnerbeskrivelse"></p>
             <p class="email"></p>
             <p class="telefon"></p>
-
         </article>
+
         <article id="arrow" class="blink_kf">˅</article>
+
     </section>
 
-    <section id="grid"></section>
+    <section id="grid"></section> <!-- section hvor vores template bliver sat i med appendChild -->
 
     <template>
+        <!--      SKABELON Det som bliver klonet i JSON -->
+        <!-- Template bliver ikke vidst i DOM-->
         <article class="gallery">
             <h2 class="navn"></h2>
             <p class="kategori"></p>
@@ -385,14 +420,12 @@
         const urlParams = new URLSearchParams(window.location.search);
         const kunstnerbillede = urlParams.get("kunstnerbillede"); //Vælger profil udfra navnet på kunsterbillede.
 
-
-
         let gallery; //ARRAY - Liste
 
-        let filter = "alle";
+        let filter = "alle"; //Viser som udgangspunkt alle
         let detalje = document.querySelector("#detalje");
 
-        document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+        document.querySelector("#menuknap").addEventListener("click", toggleMenu); //eventhandler gør knap klikbar og sender til toggleMenu function
 
         function start() {
 
@@ -400,7 +433,7 @@
             filtrer.forEach(knap => knap.addEventListener("click", filtrerBilleder)); //laver knap som sender videre til filtreringsfunktion.
 
 
-            hentJson();
+            hentJson(); //Går ned i hentJson function
         }
 
 
@@ -409,8 +442,8 @@
 
             const JsonURL = "https://spreadsheets.google.com/feeds/list/1GpINnM4T06f0kmnvTbFIUhjcDDQIBfumXkSyaEKTzEw/od6/public/values?alt=json";
 
-            const response = await fetch(JsonURL);
-            console.log(response); // Venter på at hente (fetche) JSON fil.
+            const response = await fetch(JsonURL); // Venter på at hente (fetche) JSON fil.
+            console.log(response);
 
             gallery = await response.json(); // Vores array venter på svar fra JSON
             console.log(gallery);
@@ -425,44 +458,40 @@
 
             let valgt = document.querySelector(".valgt");
 
-            valgt.classList.remove("valgt");
-            filter = this.dataset.filter;
-            this.classList.add("valgt");
+            valgt.classList.remove("valgt"); //fjerner class
+            filter = this.dataset.filter; //Det datafilter knappen som er blevet trykket på, får navnet filter.
+            this.classList.add("valgt"); //tilføjer class til "denne"(this) knap som er blevet trykket på på
 
-            vis();
+            vis(); //gå til funktionen vis
 
         }
 
         function vis() {
 
-            const temp = document.querySelector("template").content;
-            const dest = document.querySelector("#grid");
+            const temp = document.querySelector("template").content; // variabel på indholdet (content) af template
+            const dest = document.querySelector("#grid"); //variabel på vores destination (grid)
 
-            dest.textContent = "";
+            dest.textContent = ""; //fjerne alt indhold i variablen "dest"
 
             gallery.feed.entry.forEach(billede => {
                 // For hvert element i vores array, skal den gøre følgende:
 
-                if (billede.gsx$kunstnerbillede.$t == kunstnerbillede || billede.gsx$kunstner.$t == filter || filter == "alle") { // Filtrere kategorier og kunstnernavn
+                if (billede.gsx$kunstner.$t == filter || filter == "alle") { // Filtrere kategorier og kunstnernavn
 
-                    const klon = temp.cloneNode(true); // Kloner vores template
+                    const klon = temp.cloneNode(true); // Variabel på cloneNode, som kloner vores template
 
                     klon.querySelector("img").src = "img_small/" + billede.gsx$billede.$t + ".jpg";
                     klon.querySelector(".kategori").textContent = billede.gsx$kategori.$t;
-                    klon.querySelector("img").alt = "billede af " + billede.gsx$billede.$t; // Element der bliver klonet
-
+                    klon.querySelector("img").alt = "billede af " + billede.gsx$billede.$t; // Element der bliver klonet fra array
 
                     visDetalje(billede);
                     // Åbner detalje hvis du klikker på gallery element
                     dest.appendChild(klon); // putter vores vores klon element ind i vores "dest" som er vores grid galleri.
                 }
             });
-
-
         }
 
         function visDetalje(billede) {
-
 
             // ELEMENTER DER SKAL VISES I DETALJEN
 
@@ -471,14 +500,11 @@
                 document.querySelector("#detalje img").src = "img_artist/" + billede.gsx$kunstnerbillede.$t + ".jpg";
                 document.querySelector("#detalje .kunstnerbeskrivelse").textContent = billede.gsx$kunstnerbeskrivelse.$t;
                 document.querySelector("#detalje .email").textContent = "E-mail: " + billede.gsx$email.$t;
-                document.querySelector("#detalje .telefon").textContent ="Phone: " + billede.gsx$telefon.$t;
-
-
+                document.querySelector("#detalje .telefon").textContent = "Phone: " + billede.gsx$telefon.$t;
                 document.querySelector("img").alt = "billede af " + billede.gsx$kunstnerbillede.$t;
 
             }
         }
-
 
         function toggleMenu() {
             console.log("toggleMenu");

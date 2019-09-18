@@ -11,6 +11,8 @@
 
 body {
     margin: 0;
+    background-color: #fff;
+    scroll-behavior: smooth;
 }
 
 img {
@@ -79,19 +81,19 @@ a:hover {
 
 }
 
-   #subtext p {
-        display: inline;
-        margin: 0;
-        opacity: 0.6;
-    }
+#subtext p {
+    display: inline;
+    margin: 0;
+    opacity: 0.6;
+}
 
-    b {
-         font-family: futura-pt, "sans-serif";
+b {
+    font-family: futura-pt, "sans-serif";
     font-style: normal;
     font-weight: 500;
     color: #fff;
 
-    }
+}
 
 
 #menuknap {
@@ -181,7 +183,7 @@ a:hover {
 
 
 .burgermenu a:hover {
-        color: var(--link-color);
+    color: var(--link-color);
     transform: scale(1.03);
 }
 
@@ -288,6 +290,47 @@ footer a {
 
 }
 
+/********* ABOUT *******/
+
+#about img {
+    max-width: 30vh;
+    margin: 10vw;
+}
+
+figcaption {
+    font-family: futura-pt, sans-serif;
+    position: absolute;
+    font-weight: 200;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+figure {
+    display: flex;
+    justify-content: center;
+}
+
+#about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.89);
+    background-color: #f4f4f4;
+
+}
+
+#about p {
+    font-family: futura-pt, sans-serif;
+    font-weight: 200;
+    font-size: 1.2rem;
+    margin: 1vw auto;
+    padding: 4vw 4vw;
+}
+
+
+
 
 @media only screen and (min-width: 600px) {
 
@@ -320,10 +363,10 @@ footer a {
     }
 
     b {
-         font-family: futura-pt, "sans-serif";
-    font-style: normal;
-    font-weight: 500;
-    color: #fff;
+        font-family: futura-pt, "sans-serif";
+        font-style: normal;
+        font-weight: 500;
+        color: #fff;
 
     }
 
@@ -352,8 +395,8 @@ footer a {
     }
 
     .burgermenu img {
-    width: 15vw;
-}
+        width: 15vw;
+    }
 
 
     .burgermenu a,
@@ -390,18 +433,113 @@ footer a {
         position: relative;
         bottom: 0;
         width: 100%;
-        font-family: futura-pt, sans-serif;
-        text-align: center;
-        font-weight: 700;
-        font-style: thin;
-        background-color: #f4f4f4;
-        font-size: 1.5rem;
-        color: black;
 
     }
 
-    footer a {
-        color: black;
+    /*    ABOUT  */
+
+    #background {
+        background-color: #f4f4f4;
+
+    }
+
+    #about img {
+        max-width: 70vh;
+        padding: 0 0 3vw 0;
+        margin: 0 0 0 32vw;
+    }
+
+    #about {
+        display: block;
+        position: fixed;
+        text-align: justify;
+        top: 2vw;
+        height: 60.6vh;
+        background-color: rgba(255, 255, 255, 0.89);
+        background-color: #f4f4f4;
+    }
+
+    #about p {
+        font-family: futura-pt, sans-serif;
+        font-weight: 200;
+        font-size: 1.2rem;
+        margin: 0 0 1vw 33vw;
+        padding: 0;
+        width: 33vw;
+    }
+
+    #arrow {
+        position: relative;
+        top: 45vw;
+        margin: 0vw auto;
+        height: 100px;
+        width: 100px;
+        font-family: courier new, 'sans-serif';
+        font-size: 5rem;
+        color: #fff;
+
+    }
+
+    .fotografer {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 50vw;
+        height: 60vw;
+        margin: 10vw 0 1vw 0;
+        padding: 10vw 0 0 0;
+        background-color: #f4f4f4;
+        overflow: hidden;
+
+    }
+
+    .fotografer img {
+        max-height: 70vw;
+        transition: 0.5s;
+        /*               padding: 2vw;*/
+        margin: 0 0 10vw 0;
+    }
+
+    .fotografer img:hover {
+        transform: scale(1.02);
+    }
+
+    figure {
+        display: flex;
+        justify-content: center;
+    }
+
+    figcaption {
+        font-family: futura-pt, sans-serif;
+        position: absolute;
+        font-weight: 200;
+        font-size: 2rem;
+        margin: 0;
+        padding: 0;
+        top: 30vw;
+        color: white;
+    }
+
+
+    .blink_kf {
+        animation-name: blink_kf;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
+    }
+
+    @keyframes blink_kf {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
 
     }
 

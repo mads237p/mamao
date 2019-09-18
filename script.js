@@ -2,36 +2,32 @@ document.addEventListener("DOMContentLoaded", start);
 
 let gallery; //ARRAY - Liste 
 
-let filter = "alle";
+let filter = "alle"; //Alle skal vises som udgangspunkt
 let detalje = document.querySelector("#detalje");
 
 document.querySelector("#menuknap").addEventListener("click", toggleMenu);
 
 function start() {
 
-    detalje.style.display = "none";
+    detalje.style.display = "none"; //Fjerne alt styling fra variabel "detalje"
 
-    const filtrer = document.querySelectorAll(".filter");
+    const filtrer = document.querySelectorAll(".filter"); // laver selector til variabel
     filtrer.forEach(knap => knap.addEventListener("click", filtrerBilleder)); //laver knap som sender videre til filtreringsfunktion.
 
     hentJson();
 }
 
-
 async function hentJson() {
 
-   
-    
     const JsonURL = "https://spreadsheets.google.com/feeds/list/1GpINnM4T06f0kmnvTbFIUhjcDDQIBfumXkSyaEKTzEw/od6/public/values?alt=json";
 
     const response = await fetch(JsonURL);
-    console.log(response);  // Venter på at hente (fetche) JSON fil. 
+    console.log(response); // Venter på at hente (fetche) JSON fil.
 
     gallery = await response.json(); // Vores array venter på svar fra JSON 
     console.log(gallery);
 
     vis();
-
 }
 
 function filtrerBilleder() {
@@ -40,45 +36,46 @@ function filtrerBilleder() {
 
     let valgt = document.querySelector(".valgt");
 
-    valgt.classList.remove("valgt"); 
+    valgt.classList.remove("valgt"); //fjerner class
+    filter = this.dataset.filter; //Det datafilter knappen som er blevet trykket på, får navnet filter.
 
-    filter = this.dataset.filter;
+    this.classList.add("valgt"); //tilføjer class til "denne"(this) knap som er blevet trykket på på
 
-    this.classList.add("valgt");
-
-    vis();
+    vis(); //gå til funktionen vis
 
 }
 
 function vis() {
 
     const temp = document.querySelector("template").content;
+    // variabel på indholdet (content) af template
     const dest = document.querySelector("#grid");
+    //variabel på vores destination (grid)
 
-    dest.textContent = "";
+    dest.textContent = ""; //fjerne alt indhold i variablen "dest"
 
     gallery.feed.entry.forEach(billede => {
-// For hvert element i vores array, skal den gøre følgende:
+        // For hvert element i vores array, skal den gøre følgende:
 
         if (billede.gsx$kategori.$t == filter || billede.gsx$kunstner.$t == filter || filter == "alle") { // Filtrere kategorier og kunstnernavn
 
-            const klon = temp.cloneNode(true); // Kloner vores template
+            const klon = temp.cloneNode(true); // Variabel på cloneNode, som kloner vores template
 
             klon.querySelector("img").src = "img_small/" + billede.gsx$billede.$t + ".jpg";
             klon.querySelector(".kategori").textContent = billede.gsx$kategori.$t;
-            klon.querySelector("img").alt = "billede af " + billede.gsx$billede.$t; // Element der bliver klonet
-            klon.querySelector(".gallery").addEventListener("click", () => { 
+            klon.querySelector("img").alt = "billede af " + billede.gsx$billede.$t; // Klon variabel, kloner element og putter JSON element ind i stedet
+            klon.querySelector(".gallery").addEventListener("click", () => {
 
-                visDetalje(billede); // Åbner detalje hvis du klikker på gallery element
+                visDetalje(billede); // Laver funktion som åbner detalje, hvis du klikker på gallery element
             });
 
-            dest.appendChild(klon); // putter vores vores klon element ind i vores "dest" som er vores grid galleri. 
+            dest.appendChild(klon); // putter  vores vores klon element ind (appender) i vores "dest" som er vores grid galleri.
         }
     });
 }
 
 function visDetalje(billede) {
-    
+
     // ELEMENTER DER SKAL VISES I DETALJEN
 
     detalje.style.display = "block";
@@ -96,10 +93,7 @@ function visDetalje(billede) {
 
     document.querySelector("#kunstner").addEventListener("click", () => {
 
-         location.href = 'artists.html';
-
-
-// Åbner link til ny side, som er defineret udfra hvilket kunstnernavn man trykker på. 
+        location.href = 'artists.html'; // Åbner link
 
     });
 
@@ -109,7 +103,7 @@ function visDetalje(billede) {
 function skjulDisplay() {
 
     detalje.style.display = "none";
-    
+
     //Skjuler display, ved at vise ingenting.
 }
 
@@ -118,7 +112,7 @@ function toggleMenu() {
 
     document.querySelector(".burgermenu").classList.toggle("hidden"); //har toggler classen "hidden" on/off
 
-    let erSkjult = document.querySelector(".burgermenu").classList.contains("hidden"); 
+    let erSkjult = document.querySelector(".burgermenu").classList.contains("hidden");
 
     if (erSkjult == true) { //hvis hidden er på knappen
 
