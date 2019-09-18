@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/ezp1vgo.css">
+    <link rel="icon" href="logo/favicon.ico" type="gif" sizes="16x16">
+    <title>MAMĀO</title>
+    <style>
+        :root {
+
+            --link-color: #ffbe78;
+            --menu-color: rgba(0, 123, 137, 0.7);
+        }
+
+        img {
+            width: 100%;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        button {
+            color: #000;
+            border: none;
+            background: none;
+        }
+
+        article {
+            overflow: hidden;
+            margin: -4vw 0;
+        }
+
+        .kategori {
+            display: none;
+            visibility: hidden;
+        }
+
+        /********** HEADER *************/
+
+        header a #artist {
+            margin: 1vw 37vw;
+            width: 20vw;
+        }
+
+        /* ********  DETALJE *******/
+
+        #detalje {
+            position: relative;
+            width: 100vw;
+            margin: 8vw auto;
+
+        }
+
+
+        #detalje .billede {
+            margin: 3vw;
+            background: rgba(255, 255, 255, 0.87);
+            font-family: futura pt, sans-serif;
+            font-weight: 200;
+        }
+
+        #detalje .kunstnerbeskrivelse {
+            font-family: futura pt, sans-serif;
+            font-weight: 200;
+            padding: 1rem 1rem;
+            grid-area: sidebar;
+            margin: 0 0 0 0rem;
+        }
+
+         #detalje .telefon, .email {
+                margin: 0 0 0 1rem;
+             font-weight: 500;
+
+            }
+
+
+
+        #detalje img {
+            grid-area: main;
+        }
+
+        #detalje h2 {
+            justify-self: start;
+            grid-area: header;
+            padding: 0 3rem;
+            margin: 3vw 0 0 0;
+            font-family: sorts-mill-goudy, serif;
+            font-style: normal;
+            font-weight: 500;
+            color: #000;
+
+        }
+
+
+        /************ GRID **********/
+
+
+        #grid {
+            columns: 100px 2;
+            margin: 1vw 1vw;
+            padding: 1rem;
+            overflow: hidden;
+            column-gap: .3rem;
+
+            /*            align-self: center;*/
+        }
+
+        /********** MENUER ******/
+
+        #menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+        }
+
+        #menu .filter {
+            margin: 2vw 0 auto 0;
+            font-family: futura-pt, 'sans-serif';
+            font-size: 1.5rem;
+
+        }
+
+        #menuknap {
+            position: fixed;
+            font-size: 2rem;
+            top: 0;
+            color: #000;
+            margin: 2vw;
+            cursor: pointer;
+            z-index: 3000;
+
+        }
+
+        #menu .valgt {
+            color: var(--link-color);
+        }
+
+.burgermenu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 0;
+    z-index: 2000;
+    padding: 3vw;
+    background-color: var(--menu-color);
+}
+
+.burgermenu a,
+.burgermenu button {
+    font-family: futura-pt, 'sans-serif';
+    margin: 2vw auto;
+    padding: 9vw 0;
+    font-size: 2rem;
+    color: #fff;
+    border: none;
+    background: none;
+    transition: 0.5s;
+
+}
+
+.burgermenu img {
+    width: 70vw;
+}
+
+        .burgermenu a:hover {
+            color: var(--link-color);
+        }
+
+        .hidden {
+            display: none;
+            visibility: hidden;
+        }
+
+
+
+
+
+
+        /************ ABOVE 600 PIXELS ***************/
+
+        @media only screen and (min-width: 600px) {
+
+            #grid {
+                columns: 200px 3;
+                margin: 3vw 8vw;
+                padding: 2rem;
+                overflow: hidden;
+                column-gap: .3rem;
+
+                /*            align-self: center;*/
+            }
+
+            article {
+                overflow: hidden;
+                margin: -1.1rem 0;
+            }
+
+
+
+            #menu {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 0 20vw;
+            }
+
+            #menu a {
+                margin: 1rem;
+                padding: 0.1rem;
+                font-size: 1.5rem;
+                color: #000;
+            }
+
+            .burgermenu {
+                width: 20%;
+
+            }
+
+
+    .burgermenu img {
+    width: 15vw;
+}
+
+
+    .burgermenu a,
+    .burgermenu button {
+        font-family: futura-pt, 'sans-serif';
+        margin: 2vw auto;
+        padding: 3vw 0;
+        font-size: 1.5rem;
+        color: #fff;
+        border: none;
+        background: none;
+
+    }
+
+            #menuknap {
+                position: fixed;
+                font-size: 2rem;
+                top: 0;
+                color: #000;
+                margin: 2vw;
+                cursor: pointer;
+                z-index: 3000;
+
+            }
+
+            #menu .valgt {
+                color: orange;
+            }
+
+
+            header a #artist {
+                margin: 1vw 37vw;
+                max-width: 20vw;
+            }
+
+            .burgermenu button {
+                font-family: futura pt, 'sans-serif';
+                margin: 1vw;
+                padding: 2vw 0;
+                font-size: 1rem;
+                color: #fff;
+                background: none;
+                border: none;
+            }
+
+            #detalje {
+                position: relative;
+                width: 100vw;
+                margin: 4vw auto;
+
+            }
+
+            #detalje .billede {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-rows: 15vw 2vw 4vw 15vw;
+                grid-template-areas:
+                    "main sidebar sidebar ."
+                    "main email email ."
+                    "main telefon telefon ."
+                    "main . . .";
+                margin: 0 0 0 10vw;
+                background: rgba(255, 255, 255, 0.87);
+                font-family: futura pt, sans-serif;
+                font-weight: 200;
+            }
+
+            #detalje .kunstnerbeskrivelse {
+                font-family: futura pt, sans-serif;
+                font-weight: 200;
+                padding: 1rem 2rem 0 4rem;
+                grid-area: sidebar;
+                margin: 0 0 0 2rem;
+            }
+
+            #detalje img {
+                grid-area: main;
+            }
+
+            #detalje .email, #detalje .telefon {
+
+                padding: 0 2rem 0 4rem;
+                margin: 0 0 0 2rem;
+                grid-area: email;
+                align-self: flex-start;
+                justify-self: start;
+            }
+
+            #detalje .telefon {
+                grid-area: telefon;
+
+            }
+
+            #detalje h2 {
+                justify-self: start;
+                grid-area: header;
+                padding: 0 6rem;
+                font-family: sorts-mill-goudy, serif;
+                font-style: normal;
+                font-weight: 500;
+                color: #000;
+
+            }
+
+              #arrow {
+           position: absolute;
+             top: 29vw;
+             left: 50vw;
+           margin: 1vw auto;
+           height: 100px;
+           width: 100px;
+           font-family: courier new, 'sans-serif';
+           font-size: 5rem;
+
+
+       }
+
+             .blink_kf {
+            animation-name: blink_kf;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes blink_kf {
+            0% {opacity: 1;}
+            50% {opacity: 0;}
+            100%{opacity: 1;}
+
+        }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img id="artist" src="logo/logo_black.png" alt=""></a>
+        <nav>
+            <div id="menuknap">&#9776;</div>
+            <div class="burgermenu hidden">
+                <a href="index.html" id="logo"><img src="logo_white.png" alt=""></a>
+                <a href="artists.html">Photographers</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <div id="menu">
+                <button class="filter valgt" data-filter="Malik Grosos">Malik Grosos</button>
+                <button class="filter" data-filter="Alice Hüllert">Alice Hüllert</button>
+                <button class="filter" data-filter="Jenny Sila">Jenny Sila</button>
+
+            </div>
+        </nav>
+    </header>
+
+    <section id="detalje">
+        <article class="billede">
+            <img src="img_artist/alicebillede.jpg" alt="">
+
+            <p class="kunstnerbeskrivelse"></p>
+            <p class="email"></p>
+            <p class="telefon"></p>
+
+        </article>
+        <article id="arrow" class="blink_kf">˅</article>
+    </section>
+
+    <section id="grid"></section>
+
+    <template>
+        <article class="gallery">
+            <h2 class="navn"></h2>
+            <p class="kategori"></p>
+            <img src="" alt="">
+
+        </article>
+    </template>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const kunstnerbillede = urlParams.get("kunstnerbillede"); //Vælger profil udfra navnet på kunsterbillede.
+
+
+
+        let gallery; //ARRAY - Liste
+
+        let filter = "alle";
+        let detalje = document.querySelector("#detalje");
+
+        document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
+        function start() {
+
+            const filtrer = document.querySelectorAll(".filter");
+            filtrer.forEach(knap => knap.addEventListener("click", filtrerBilleder)); //laver knap som sender videre til filtreringsfunktion.
+
+
+            hentJson();
+        }
+
+
+        async function hentJson() {
+
+
+            const JsonURL = "https://spreadsheets.google.com/feeds/list/1GpINnM4T06f0kmnvTbFIUhjcDDQIBfumXkSyaEKTzEw/od6/public/values?alt=json";
+
+            const response = await fetch(JsonURL);
+            console.log(response); // Venter på at hente (fetche) JSON fil.
+
+            gallery = await response.json(); // Vores array venter på svar fra JSON
+            console.log(gallery);
+
+            vis();
+
+        }
+
+        function filtrerBilleder() {
+
+            //Sæt variable filter til aktuel værdi
+
+            let valgt = document.querySelector(".valgt");
+
+            valgt.classList.remove("valgt");
+            filter = this.dataset.filter;
+            this.classList.add("valgt");
+
+            vis();
+
+        }
+
+        function vis() {
+
+            const temp = document.querySelector("template").content;
+            const dest = document.querySelector("#grid");
+
+            dest.textContent = "";
+
+            gallery.feed.entry.forEach(billede => {
+                // For hvert element i vores array, skal den gøre følgende:
+
+                if (billede.gsx$kunstnerbillede.$t == kunstnerbillede || billede.gsx$kunstner.$t == filter || filter == "alle") { // Filtrere kategorier og kunstnernavn
+
+                    const klon = temp.cloneNode(true); // Kloner vores template
+
+                    klon.querySelector("img").src = "img_small/" + billede.gsx$billede.$t + ".jpg";
+                    klon.querySelector(".kategori").textContent = billede.gsx$kategori.$t;
+                    klon.querySelector("img").alt = "billede af " + billede.gsx$billede.$t; // Element der bliver klonet
+
+
+                    visDetalje(billede);
+                    // Åbner detalje hvis du klikker på gallery element
+                    dest.appendChild(klon); // putter vores vores klon element ind i vores "dest" som er vores grid galleri.
+                }
+            });
+
+
+        }
+
+        function visDetalje(billede) {
+
+
+            // ELEMENTER DER SKAL VISES I DETALJEN
+
+            if (billede.gsx$kunstnerbillede.$t == kunstnerbillede || billede.gsx$kunstner.$t == filter || filter == "alle") {
+                //
+                document.querySelector("#detalje img").src = "img_artist/" + billede.gsx$kunstnerbillede.$t + ".jpg";
+                document.querySelector("#detalje .kunstnerbeskrivelse").textContent = billede.gsx$kunstnerbeskrivelse.$t;
+                document.querySelector("#detalje .email").textContent = "E-mail: " + billede.gsx$email.$t;
+                document.querySelector("#detalje .telefon").textContent ="Phone: " + billede.gsx$telefon.$t;
+
+
+                document.querySelector("img").alt = "billede af " + billede.gsx$kunstnerbillede.$t;
+
+            }
+        }
+
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+
+            document.querySelector(".burgermenu").classList.toggle("hidden"); //har toggler classen "hidden" on/off
+
+            let erSkjult = document.querySelector(".burgermenu").classList.contains("hidden");
+
+            if (erSkjult == true) { //hvis hidden er på knappen
+
+                document.querySelector("#menuknap").textContent = "☰"; //skal denne vises
+
+            } else { //ellers skal krydset vises.
+
+                document.querySelector("#menuknap").textContent = "𝘅";
+
+            }
+        }
+    </script>
+</body></html>

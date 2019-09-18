@@ -6,6 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.typekit.net/ezp1vgo.css">
     <link rel="icon" href="logo/favicon.ico" type="gif" sizes="16x16">
     <link rel="stylesheet" href="style.css">
@@ -16,23 +17,22 @@
 <body>
     <header>
         <section id="splash">
-            <article id="logo"><img src="logo/Logo_white.svg" alt=""></article>
-            <article id="subtext">A Copenhagen based visual company founded in 2019 exploring the depth of urban and versatile cultures, beauty and its complexities.
+            <article id="subtext"><p> We are a Copenhagen based</p> <b>Photography</b> <p>company founded in 2019 exploring the depth of urban and versatile cultures, beauty and its complexities.</p>
             </article>
+            <article id="logo"><img src="logo/Logo_white.svg" alt=""></article>
+
         </section>
 
         <nav>
             <div id="menuknap">&#9776;</div>
             <div class="burgermenu hidden">
-                <a href="">MENU</a>
-                <button class="filter" data-filter="Alice Hüllert">Alice Hüllert</button>
-                <button class="filter" data-filter="Jenny Sila">Jenny Sila</button>
-                <button class="filter" data-filter="Malik Grosos">Malik Grosos</button>
-                <a href="">About</a>
+                <a href="index.html"><img src="logo_white.png" alt=""></a>
+                <a href="artists.html">Photographers</a>
+                <a href="about.html">About</a>
             </div>
 
             <div id="menu">
-                <button class="filter valgt" data-kategori="alle"></button>
+                <button class="filter valgt alle" data-kategori="alle"></button>
                 <button data-filter="live" class="filter">Live</button>
                 <button data-filter="portrait " class="filter">Portrait</button>
                 <button data-filter="nature" class="filter">Nature</button>
@@ -57,13 +57,14 @@
     </article>
 
     <template>
-        <article class="gallery">
+        <article id="gallery" class="gallery">
             <h2 class="navn"></h2>
             <p class="kategori"></p>
-            <img src="" alt="">
+            <img id="temp" src="" alt="">
 
         </article>
     </template>
+    <footer> <a href="#splash">BACK TO THE TOP</a></footer>
 
     <script src="script.js"></script>
     <script>

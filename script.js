@@ -96,11 +96,12 @@ function visDetalje(billede) {
 
     document.querySelector("#kunstner").addEventListener("click", () => {
 
-        location.href = `kunstnerdetalje.html?kunstnerbillede=${billede.gsx$kunstnerbillede.$t}`;
+         location.href = 'artists.html';
+
 
 // Åbner link til ny side, som er defineret udfra hvilket kunstnernavn man trykker på. 
 
-    })
+    });
 
 }
 

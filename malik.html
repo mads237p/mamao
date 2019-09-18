@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/ezp1vgo.css">
+    <link rel="icon" href="logo/favicon.ico" type="gif" sizes="16x16">
+    <link rel="stylesheet" href="style.css">
+    <title>MAMĀO</title>
+    <style>
+        img {
+            width: 100%;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+        }
+
+/* ********  DETALJE *******/
+
+        #detalje {
+            width: 100vw;
+            height: 100vw;
+            margin: 8vw auto;
+
+        }
+
+        #detalje .tilbage {
+            position: absolute;
+            top: -8vw;
+            right: 2vw;
+            font-size: 4rem;
+            color: #000;
+
+        }
+
+        #detalje .person {
+            margin: 3vw;
+            background: rgba(255, 255, 255, 0.87);
+        }
+
+        #detalje .kunstnerbeskrivelse {
+            font-family: futura pt, sans-serif;
+            font-weight: 200;
+            padding: 1rem 1rem;
+            grid-area: sidebar;
+            margin: 0 0 0 2rem;
+        }
+
+        #detalje img {
+            grid-area: main;
+        }
+
+        #detalje h2 {
+            justify-self: start;
+            grid-area: header;
+            padding: 0 3rem;
+            margin: 3vw 0 0 0;
+            font-family: sorts-mill-goudy, serif;
+            font-style: normal;
+            font-weight: 500;
+            color: #000;
+
+        }
+
+        /********** MENUER ******/
+
+        #menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+
+        #menuknap {
+            position: fixed;
+            font-size: 2rem;
+            top: 0;
+            color: #000;
+            margin: 2vw;
+            cursor: pointer;
+            z-index: 3000;
+
+        }
+
+        .burgermenu {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 0 0 0;
+            z-index: 2000;
+            padding: 8vw 3vw;
+            background-color: rgba(46, 139, 87, 0.3);
+        }
+
+        .burgermenu a,
+        button {
+            font-family: futura-pt, 'sans-serif';
+            margin: 0 auto;
+            padding: 9vw 0;
+            font-size: 2rem;
+            color: #fff;
+            border: none;
+            background: none;
+
+        }
+
+        .hidden {
+            display: none;
+            visibility: hidden;
+        }
+
+
+
+
+    /************ ABOVE 600 PIXELS ***************/
+
+        @media only screen and (min-width: 600px) {
+
+
+
+            #menu {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 0 10vw;
+            }
+
+            #menu a {
+                margin: 1rem;
+                padding: 0.1rem;
+                font-size: 1.5rem;
+                color: #000;
+            }
+
+
+        #menuknap {
+            position: fixed;
+            font-size: 2rem;
+            top: 0;
+            color: #000;
+            margin: 2vw;
+            cursor: pointer;
+            z-index: 3000;
+
+            }
+
+            #menu .valgt {
+                color: orange;
+            }
+
+            .burgermenu button {
+                font-family: futura pt, 'sans-serif';
+                margin: 10px;
+                padding: 2vw 0;
+                font-size: 1rem;
+                color: #fff;
+                background: none;
+                border: none;
+            }
+
+            #detalje .person {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-rows: 5vw 20vw;
+                grid-template-areas:
+                    "main header header ."
+                    "main sidebar sidebar .";
+                margin: 0 0 0 10vw;
+                background: rgba(255, 255, 255, 0.87);
+            }
+
+            #detalje .kunstnerbeskrivelse {
+                font-family: futura pt, sans-serif;
+                font-weight: 200;
+                padding: 1rem 2rem 0 4rem;
+                grid-area: sidebar;
+                margin: 0 0 0 2rem;
+            }
+
+            #detalje img {
+                grid-area: main;
+            }
+
+            #detalje h2 {
+                justify-self: start;
+                grid-area: header;
+                padding: 0 6rem;
+                font-family: sorts-mill-goudy, serif;
+                font-style: normal;
+                font-weight: 500;
+                color: #000;
+
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+        <nav>
+            <div id="menuknap">&#9776;</div>
+            <div class="burgermenu hidden">
+                <a href="">MENU</a>
+                 <a href="alice.html">Alice Hüllert</a>
+                <a href="jenny.html">Jenny Sila</a>
+                <a href="malik.html">Malik Grosos</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <div id="menu">
+                <button class="filter valgt" data-kategori="alle"></button>
+                <button data-filter="live" class="filter">Live</button>
+                <button data-filter="portrait " class="filter">Portrait</button>
+                <button data-filter="nature" class="filter">Nature</button>
+                <button data-filter="urban" class="filter">Urban</button>
+                <button data-filter="analog" class="filter">Analog</button>
+
+            </div>
+        </nav>
+    </header>
+
+    <section id="grid"></section>
+
+    <article id="detalje">
+        <article class="gallery">
+            <a class="luk">𝘅</a>
+            <img src="" alt="">
+            <h2 class="navn"></h2>
+            <p class="beskrivelse"></p>
+            <p id="kunstner"></p>
+            <p class="kategori"></p>
+        </article>
+    </article>
+
+    <template>
+        <article class="gallery">
+            <h2 class="navn"></h2>
+            <p class="kategori"></p>
+            <img src="" alt="">
+
+        </article>
+    </template>
+
+    <script src="script.js"></script>
+    <script>
+
+    </script>
+</body></html>

@@ -1,159 +1,385 @@
-    * {
-        box-sizing: border-box;
+:root {
 
-    }
+    --link-color: #ffbe78;
+    --menu-color: rgba(0, 123, 137, 0.7);
+}
 
-    body {
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+#grid {
+    columns: 200px 3;
+    margin: 3vw 8vw;
+    padding: 2rem;
+    column-gap: .3rem;
+
+
+    /*            align-self: center;*/
+}
+
+a {
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+a:hover {
+    color: var(--link-color);
+}
+
+#gallery {
+    margin: -1.5vw 0;
+    cursor: pointer;
+
+}
+
+#gallery img {
+    opacity: 0.9;
+    transition: 1s;
+
+}
+
+#gallery img:hover {
+    transform: scale(1.01);
+    opacity: 1;
+}
+
+#splash {
+    background-image: url(img/brynhilde2.jpg);
+    background-size: cover;
+    width: 100%;
+    background-position: 0% 50%;
+    height: 177.4vw;
+}
+
+#logo {
+    position: absolute;
+    top: 20vw;
+    left: 47vw;
+    width: 50vw;
+}
+
+#subtext {
+    position: absolute;
+    top: 43vw;
+    left: 50vw;
+    width: 40vw;
+    font-family: futura-pt, "sans-serif";
+    font-style: normal;
+    font-weight: 200;
+    color: #fff;
+    font-size: .7rem;
+
+}
+
+   #subtext p {
+        display: inline;
         margin: 0;
+        opacity: 0.6;
     }
 
-    img {
-        width: 100%;
-        overflow: hidden;
+    b {
+         font-family: futura-pt, "sans-serif";
+    font-style: normal;
+    font-weight: 500;
+    color: #fff;
+
     }
 
-    #grid {
-        columns: 200px 3;
-        margin: 3vw 8vw;
-        padding: 2rem;
-        overflow: hidden;
-        column-gap: .3rem;
 
-        /*            align-self: center;*/
-    }
+#menuknap {
+    position: fixed;
+    font-size: 2rem;
+    top: 0;
+    color: #fff;
+    margin: 2vw;
+    cursor: pointer;
+    z-index: 3000;
 
-    a {
-        text-decoration: none;
-        text-transform: capitalize;
-    }
+}
 
-    article {
-        overflow: hidden;
-        margin: -1.5vw 0;
-    }
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1vw auto;
+
+}
+
+#menu a,
+#menu button {
+    font-family: futura-pt, sans-serif;
+    font-weight: 700;
+    font-style: thin;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 1rem;
+    padding: 0.1rem;
+    font-size: 1.5rem;
+    color: #000;
+    border: none;
+    transition: .4s;
+    cursor: pointer;
+}
+
+#menu a {
+    margin-left: 30px;
+    padding: 0 0rem 0 1rem;
+    border-left: 5px solid #fff;
+    font-size: 1.2rem;
+    font-family: 'work sans', sans-serif;
+}
+
+.alle {
+    display: none;
+}
+
+
+#menu button:hover {
+    color: var(--link-color);
+    transform: scale(1.03);
+}
+
+.burgermenu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 0;
+    z-index: 2000;
+    padding: 3vw;
+    background-color: var(--menu-color);
+}
+
+.burgermenu a,
+button {
+    font-family: futura-pt, 'sans-serif';
+    margin: 2vw auto;
+    padding: 9vw 0;
+    font-size: 2rem;
+    color: #fff;
+    border: none;
+    background: none;
+    transition: 0.5s;
+
+}
+
+.burgermenu img {
+    width: 70vw;
+}
+
+.burgermenu a:hover {
+        color: var(--link-color);
+    transform: scale(1.03);
+}
+
+.hidden {
+    visibility: hidden;
+    display: none;
+}
+
+
+#detalje {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.89);
+    margin: 0;
+    overflow: scroll;
+    justify-content: space-around;
+
+}
+
+#detalje .gallery {
+    text-align: center;
+    width: 80vw;
+    min-height: 30vh;
+    margin: auto;
+    padding: 1rem;
+
+}
+
+
+#detalje img {
+    width: 80vw;
+    padding: 2rem;
+
+}
+
+#detalje .luk {
+    position: fixed;
+    top: 0;
+    left: 10vw;
+    font-size: 5rem;
+    cursor: pointer;
+
+}
+
+#detalje h2 {
+    text-align: left;
+    font-family: sorts-mill-goudy, serif;
+    font-style: normal;
+    font-weight: 200;
+    color: #000;
+    margin: 1rem 0 0 0;
+    font-size: 1.2rem;
+}
+
+#detalje a {
+    color: black;
+    border: none;
+    font-family: 'bebas neue', sans-serif;
+
+}
+
+#detalje .beskrivelse {
+    text-align: left;
+    font-family: futura-pt, sans-serif;
+    font-weight: 200;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+
+}
+
+.kategori {
+    display: none;
+    visibility: hidden;
+}
+
+#kunstner {
+    text-align: left;
+    font-family: sorts-mill-goudy, serif;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--link-color);
+    margin: 1rem 0 0 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+footer {
+    font-family: futura-pt, sans-serif;
+    text-align: center;
+    font-weight: 600;
+    font-style: thin;
+    background-color: #f4f4f4;
+    font-size: 1.5rem;
+    color: black;
+
+}
+
+footer a {
+    color: black;
+
+}
+
+
+@media only screen and (min-width: 600px) {
 
     #splash {
-        background-image: url(img/brynhilde2.jpg);
         background-size: cover;
         width: 100%;
-        background-position: 0% 50%;
-        height: 177.4vw;
+        height: 56.6vw;
+        background-position: 0% 10%;
     }
 
     #logo {
         position: absolute;
         top: 20vw;
-        left: 47vw;
-        width: 50vw;
+        left: 50vw;
+        width: 30vw;
     }
 
     #subtext {
-        position: absolute;
-        top: 43vw;
-        left: 50vw;
-        width: 40vw;
-        font-family: sorts-mill-goudy, serif;
-        font-style: italic;
-        font-weight: 500;
-        color: #fff;
-        font-size: .7rem;
-
+        top: 27vw;
+        font-size: 1.2rem;
+        left: 45vw;
+        opacity: 1;
+        padding: 4vw;
     }
 
-    #menuknap {
-        position: fixed;
-        font-size: 2rem;
-        top: 0;
-        color: #fff;
-        margin: 2vw;
-        cursor: pointer;
-        z-index: 3000;
-
+    #subtext p {
+        display: inline;
+        margin: 0;
+        opacity: 0.6;
     }
 
+    b {
+         font-family: futura-pt, "sans-serif";
+    font-style: normal;
+    font-weight: 500;
+    color: #fff;
+
+    }
 
     #menu {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-between;
-
+        margin: 0 10vw;
     }
 
-    #menu a,
-    #menu button {
-        font-family: futura-pt, sans-serif;
-        font-weight: 700;
-        font-style: thin;
-        text-transform: uppercase;
-        text-decoration: none;
+    #menu a {
         margin: 1rem;
         padding: 0.1rem;
         font-size: 1.5rem;
         color: #000;
-        border: none;
     }
 
-    #menu a {
-        margin-left: 30px;
-        padding: 0 0rem 0 1rem;
-        border-left: 5px solid #fff;
-        font-size: 1.2rem;
-        font-family: 'work sans', sans-serif;
+    #menu .valgt {
+        color: var(--link-color);
     }
 
-
-    #menu a:hover {
-        color:
-    }
 
     .burgermenu {
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        margin: 0 0 0 0;
-        z-index: 2000;
-        padding: 3vw;
-        background-color: rgba(46, 139, 87, 0.3);
+        width: 20%;
+
     }
 
+    .burgermenu img {
+    width: 15vw;
+}
+
+
     .burgermenu a,
-    button {
+    .burgermenu button {
         font-family: futura-pt, 'sans-serif';
-        margin: 0 auto;
-        padding: 9vw 0;
-        font-size: 2rem;
+        margin: 2vw auto;
+        padding: 3vw 0;
+        font-size: 1.5rem;
         color: #fff;
         border: none;
         background: none;
 
     }
 
-    .hidden {
-        visibility: hidden;
-        display: none;
+
+    #detalje img {
+        max-width: 40vw;
+        min-height: 40vh;
+        padding: 2rem;
     }
 
-
-    #detalje {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(255, 255, 255, 0.89);
-        margin: 0;
-        overflow: scroll;
-        justify-content: space-around;
-
-    }
 
     #detalje .gallery {
         text-align: center;
-        width: 80vw;
+        width: 50vw;
         min-height: 30vh;
         margin: auto;
         padding: 1rem;
@@ -161,136 +387,24 @@
 
     }
 
-    #detalje img {
-        width: 80vw;
-        padding: 2rem;
-    }
-
-    #detalje .luk {
-        position: fixed;
-        top: 0;
-        left: 10vw;
-        font-size: 5rem;
-        cursor: pointer;
-
-    }
-
-    #detalje h2 {
-        text-align: left;
-        font-family: sorts-mill-goudy, serif;
-        font-style: normal;
-        font-weight: 200;
-        color: #000;
-        margin: 1rem 0 0 0;
-        font-size: 1.2rem;
-    }
-
-    #detalje a {
-        color: black;
-        border: none;
-        font-family: 'bebas neue', sans-serif;
-
-    }
-
-    #detalje .beskrivelse {
-        text-align: left;
+    footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
         font-family: futura-pt, sans-serif;
-        font-weight: 200;
-        font-size: 1.2rem;
-        margin: 0;
-        padding: 0;
+        text-align: center;
+        font-weight: 700;
+        font-style: thin;
+        background-color: #f4f4f4;
+        font-size: 1.5rem;
+        color: black;
 
     }
 
-    .kategori {
-        display: none;
-        visibility: hidden;
-    }
+    footer a {
+        color: black;
 
-    #kunstner {
-        text-align: left;
-        font-family: sorts-mill-goudy, serif;
-        font-style: normal;
-        font-weight: 500;
-        color: #000;
-        margin: 1rem 0 0 0;
-        font-size: 1.2rem;
-        cursor: pointer;
     }
 
 
-
-
-    @media only screen and (min-width: 600px) {
-
-        #splash {
-            background-size: cover;
-            width: 100%;
-            height: 56.6vw;
-            background-position: 0% 10%;
-        }
-
-        #logo {
-            position: absolute;
-            top: 20vw;
-            left: 50vw;
-            width: 30vw;
-        }
-
-        #subtext {
-            top: 36vw;
-            font-size: 1.1rem;
-        }
-
-        #menu {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin: 0 10vw;
-        }
-
-        #menu a {
-            margin: 1rem;
-            padding: 0.1rem;
-            font-size: 1.5rem;
-            color: #000;
-        }
-
-        #menu .valgt {
-            color: orange;
-        }
-
-
-        .burgermenu {
-            width: 20%;
-
-        }
-
-        .burgermenu a,
-        button {
-            font-family: futura-pt, 'sans-serif';
-            margin: 0 auto;
-            padding: 3vw 0;
-            font-size: 1.5rem;
-            color: #fff;
-            border: none;
-            background: none;
-
-        }
-
-        #detalje img {
-            width: 38vw;
-            min-height: 30vh;
-            padding: 2rem;
-        }
-
-
-        #detalje .gallery {
-            text-align: center;
-            width: 50vw;
-            min-height: 30vh;
-            margin: auto;
-            padding: 1rem;
-
-        }
-    }
+}
