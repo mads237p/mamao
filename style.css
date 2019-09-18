@@ -22,8 +22,6 @@ img {
     margin: 3vw 8vw;
     padding: 2rem;
     column-gap: .3rem;
-
-
     /*            align-self: center;*/
 }
 
@@ -165,7 +163,7 @@ a:hover {
 }
 
 .burgermenu a,
-button {
+.burgermenu button {
     font-family: futura-pt, 'sans-serif';
     margin: 2vw auto;
     padding: 9vw 0;
@@ -180,6 +178,7 @@ button {
 .burgermenu img {
     width: 70vw;
 }
+
 
 .burgermenu a:hover {
         color: var(--link-color);
