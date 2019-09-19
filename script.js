@@ -9,6 +9,13 @@ document.querySelector("#menuknap").addEventListener("click", toggleMenu);
 
 function start() {
 
+    document.querySelector("#arrow").addEventListener("click", () => {
+
+        document.querySelector("nav").scrollIntoView({
+            behavior: 'smooth'
+        })
+    });
+
     detalje.style.display = "none"; //Fjerne alt styling fra variabel "detalje"
 
     const filtrer = document.querySelectorAll(".filter"); // laver selector til variabel
@@ -93,8 +100,8 @@ function visDetalje(billede) {
 
     document.querySelector("#kunstner").addEventListener("click", () => {
 
-        location.href = 'artists.html'; // Åbner link
-
+        // location.href = 'artists.html'; // Åbner link
+        location.href = `artists.html?kunstner=${billede.gsx$kunstner.$t}`;
     });
 
 }

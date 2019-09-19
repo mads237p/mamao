@@ -3,12 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.typekit.net/ezp1vgo.css">
-    <link rel="icon" href="logo/favicon.ico" type="gif" sizes="16x16">
+    <link rel="icon" href="logo/favicon.ico" type="gif/ico" sizes="16x16">
     <!--    <link rel="stylesheet" href="style.css">-->
     <title>MAMĀO</title>
     <style>
@@ -35,6 +32,7 @@
             color: #000;
             border: none;
             background: none;
+            cursor: pointer;
         }
 
         article {
@@ -43,6 +41,7 @@
             /* Fylder indholdet mere, croppes det.. */
             margin: -1.1rem 0;
             /* justere row gap i columns */
+            cursor: pointer;
         }
 
         .kategori {
@@ -88,7 +87,7 @@
         #detalje .telefon,
         #detalje .email {
             margin: 0 0 0 1rem;
-            /*            font-weight: 500;*/
+            font-weight: 500;
 
         }
 
@@ -139,6 +138,24 @@
 
         }
 
+        #menu .valgt {
+            color: var(--link-color);
+
+        }
+
+        .first {
+            display: none;
+        }
+
+        #menu .filter:hover {
+            transform: scale(1.03);
+            color: var(--link-color);
+
+        }
+
+        /***********        BURGER MENU  **********/
+
+
         #menuknap {
             position: fixed;
             font-size: 2rem;
@@ -149,12 +166,6 @@
             z-index: 3000;
 
         }
-
-        #menu .valgt {
-            color: var(--link-color);
-        }
-
-        /***********        BURGER MENU  **********/
 
         .burgermenu {
             position: fixed;
@@ -230,9 +241,9 @@
                 color: #000;
             }
 
-
             #menu .valgt {
                 color: orange;
+
             }
 
 
@@ -359,13 +370,13 @@
             }
 
         }
+
     </style>
 </head>
 
 <body>
     <header>
         <a href="index.html"><img id="top_logo" src="logo/logo_black.png" alt=""></a>
-
 
         <nav>
             <!-- indeholdet i vores burgermenu -->
@@ -378,7 +389,8 @@
 
             <!-- Filtreringsmenu. Bliver filtreret udfra data-kategorier-->
             <div id="menu">
-                <button class="filter valgt" data-filter="Malik Grosos">Malik Grosos</button>
+                <button class="first valgt"></button>
+                <button class="filter" data-filter="Malik Grosos">Malik Grosos</button>
                 <button class="filter" data-filter="Alice Hüllert">Alice Hüllert</button> <!-- filtreringsknappens data-attribut indeholder den værdi, der skal filtreres på -->
                 <button class="filter" data-filter="Jenny Sila">Jenny Sila</button>
 
@@ -396,6 +408,7 @@
             <p class="email"></p>
             <p class="telefon"></p>
         </article>
+
 
         <article id="arrow" class="blink_kf">˅</article>
 
@@ -417,20 +430,53 @@
     <script>
         document.addEventListener("DOMContentLoaded", start);
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const kunstnerbillede = urlParams.get("kunstnerbillede"); //Vælger profil udfra navnet på kunsterbillede.
 
         let gallery; //ARRAY - Liste
-
-        let filter = "alle"; //Viser som udgangspunkt alle
+        //kunstner = "Malik Grosos";
+        //let filter = (kunstner); //Viser som udgangspunkt alle
         let detalje = document.querySelector("#detalje");
+        //        let filter = encodeURIComponent('?x=шеллы')"kunstner";
+
+        //console.log(urlParams, kunstner, filter);
 
         document.querySelector("#menuknap").addEventListener("click", toggleMenu); //eventhandler gør knap klikbar og sender til toggleMenu function
 
+        let filter;
+
+
         function start() {
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const kunstner = urlParams.get("kunstner"); //Vælger profil udfra navnet på kunsterbillede.
+
+            if (kunstner) {
+
+                filter = kunstner;
+
+
+            } else {
+
+                filter = "Malik Grosos"
+            }
 
             const filtrer = document.querySelectorAll(".filter");
             filtrer.forEach(knap => knap.addEventListener("click", filtrerBilleder)); //laver knap som sender videre til filtreringsfunktion.
+
+            document.querySelector("#arrow").addEventListener("click", () => {
+
+                //                window.scroll({
+                //                    top: 725,
+                //                    left: 0,
+                //                    behavior: 'smooth'
+                //                });
+
+                document.querySelector("#grid").scrollIntoView({
+                    behavior: 'smooth'
+                })
+
+            });
+
+
 
 
             hentJson(); //Går ned i hentJson function
@@ -476,7 +522,7 @@
             gallery.feed.entry.forEach(billede => {
                 // For hvert element i vores array, skal den gøre følgende:
 
-                if (billede.gsx$kunstner.$t == filter || filter == "alle") { // Filtrere kategorier og kunstnernavn
+                if (billede.gsx$kunstner.$t == filter || filter == "alle") { // Filtrere kategorier og kunstnernavn // KUN HVIS //
 
                     const klon = temp.cloneNode(true); // Variabel på cloneNode, som kloner vores template
 
@@ -495,7 +541,7 @@
 
             // ELEMENTER DER SKAL VISES I DETALJEN
 
-            if (billede.gsx$kunstnerbillede.$t == kunstnerbillede || billede.gsx$kunstner.$t == filter || filter == "alle") {
+            if (billede.gsx$kunstner.$t == filter || filter == "alle") {
                 //
                 document.querySelector("#detalje img").src = "img_artist/" + billede.gsx$kunstnerbillede.$t + ".jpg";
                 document.querySelector("#detalje .kunstnerbeskrivelse").textContent = billede.gsx$kunstnerbeskrivelse.$t;
@@ -523,5 +569,8 @@
 
             }
         }
+
     </script>
-</body></html>
+</body>
+
+</html>

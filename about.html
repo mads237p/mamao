@@ -3,12 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Expires" content="0" />
     <link rel="stylesheet" href="https://use.typekit.net/ezp1vgo.css">
-    <link rel="icon" href="logo/favicon.ico" type="gif" sizes="16x16">
+    <link rel="icon" href="logo/favicon.ico" type="gif/ico" sizes="16x16">
     <link rel="stylesheet" href="style.css">
     <title>ABOUT</title>
 </head>
@@ -24,7 +21,7 @@
         </div>
     </nav>
 
-    <section id="about">
+    <main id="about">
         <a href="index.html"><img src="logo/logo_black.png" alt="logo"></a>
 
         <p>We are a Copenhagen based visual company founded in 2019 exploring the depth of urban and versatile cultures, beauty and its complexities.
@@ -35,21 +32,21 @@
         <p>
             See the world through our eyes and see what beauty we have stumbled upon. Enjoy the art and read about the artist behind it. Do you like what you see? Then contact the photographer.
         </p>
-        <article id="arrow" class="blink_kf">˅</article>
-    </section>
+        <div id="arrow2" class="blink_kf">˅</div>
+    </main>
 
-    <section class="fotografer">
+    <section id="section2" class="fotografer">
         <figure>
-            <img src="img_artist/malikbillede.jpg" alt="malik">
+            <img class="kunstner" src="img_artist/malikbillede.jpg" alt="malik">
             <figcaption>MALIK GROSOS</figcaption>
         </figure>
 
         <figure>
-            <img src="img_artist/jennybillede.jpg" alt="jenny">
+            <img class="kunstner" src="img_artist/jennybillede.jpg" alt="jenny">
             <figcaption>JENNY SILA</figcaption>
         </figure>
         <figure>
-            <img src="img_artist/alicebillede.jpg" alt="alice">
+            <img class="kunstner" src="img_artist/alicebillede.jpg" alt="alice">
             <figcaption>ALICE HÜLLERT</figcaption>
         </figure>
 
@@ -66,7 +63,17 @@
                 this.classList.add("")
             })
 
+            document.querySelector("#arrow2").addEventListener("click", () => {
+
+                document.querySelector("#section2").scrollIntoView({
+                    behavior: 'smooth'
+                })
+
+
+            });
+
         }
+
 
         document.querySelector("#menuknap").addEventListener("click", toggleMenu);
 
